@@ -25,7 +25,7 @@ see `https://rclone.org/`
 ```javascript
 {
   "completePath": "/home/xx/deluge/complete", // deluge complete torrent dir. Make sure to set deluge `Move completed to:` option
-  "rcloneName": "god", // rclone name, set up rclone to transfar file to your another seedbox.
+  "rcloneName": "god", // rclone name, set up rclone to transfer file to your another seedbox.
   "delugePort": 37892, // deluge daemon port
   "torrentPath": "/home/xx/.config/deluge/state/", // deluge state path.
   "destinationPath": "/home/xx/torrents/rtorrent/", // Your another seedbox's client default download dir.
