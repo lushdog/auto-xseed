@@ -1,0 +1,5 @@
+config.json
+node_modules/
+data/*
+!data/.gitkeep
+test.js

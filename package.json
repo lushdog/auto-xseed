@@ -1,0 +1,24 @@
+{
+  "name": "auto-xseed",
+  "version": "1.0.0",
+  "description": "Automatically cross seed on another seedbox.",
+  "main": "index.js",
+  "dependencies": {
+    "chokidar": "^3.3.1",
+    "shelljs": "^0.8.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lushdog/auto-xseed.git"
+  },
+  "author": "lushdog",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lushdog/auto-xseed/issues"
+  },
+  "homepage": "https://github.com/lushdog/auto-xseed#readme"
+}
