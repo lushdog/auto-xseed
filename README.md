@@ -5,8 +5,22 @@ Transfer file from a seedbox to your another seedbox and automatically cross see
 
 ## To install
 
+install nodejs
+
+`wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash`
+
+`source ~/.profile`
+
+`nvm install stable`
+
 `npm install pm2 -g`
+
+clone code
+
+`git clone https://github.com/lushdog/auto-xseed.git`
+
 `npm install`
+
 Copy `config.example.json` to `config.json`
 
 ## Set up rclone
