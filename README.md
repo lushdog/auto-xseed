@@ -1,7 +1,7 @@
 # auto-xseed
 Automatically cross seed on another seedbox.
 
-Transfar file from a seedbox to your another seedbox and automatically cross seed.
+Transfer file from a seedbox to your another seedbox and automatically cross seed.
 
 ## To install
 
