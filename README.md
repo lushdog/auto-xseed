@@ -1,3 +1,5 @@
+## [中文](https://github.com/lushdog/auto-xseed/blob/master/README.zh-CN.md)
+
 # auto-xseed
 Automatically cross seed on another seedbox.
 
