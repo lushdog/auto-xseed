@@ -20,6 +20,7 @@ const callback = async path => {
     name = name.replace('$', '\\$')
     const stat = fs.lstatSync(path)
     const realPath = stat.isDirectory() ? `${destinationPath}"${name}"` : destinationPath
+    log(`------Transferring start------`)
     shell.exec(`rclone copy "${path}" ${rcloneName}:${realPath}`)
     const rcSize = shell.exec(`rclone size "${path}"`, { silent:true }).stdout.match(/\((.+?)\)/g)[0]
     log(`Soure size is ${rcSize}`)
@@ -27,7 +28,7 @@ const callback = async path => {
     log(`destination size is ${remoteSize}`)
 
     if (rcSize === remoteSize) {
-      log(`${name} rclone to ${rcloneName} completely`)
+      log(`------${name} transferred to ${rcloneName} successfully`)
       log(`Check was done, Start to find ${name} .torrent`)
       let delugeName = name.replace('\u200e', '')
       if (delugeName.includes("'")) {
