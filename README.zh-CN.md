@@ -43,6 +43,7 @@
   "torrentPath": "/home/xx/.config/deluge/state/", // deluge存放种子文件的目录.
   "destinationPath": "/home/xx/torrents/rtorrent/", // 另外一个盒子的下载软件默认下载目录.
   "watchDir": "/home/xx/rwatch" // 另外一个盒子的watch文件夹.
+  "delugeAuth": "" // deluge的密码，如果用另一个用户运行的deluge。需要密码。格式为"username password"
 }
 ```
 
