@@ -4,7 +4,7 @@ const fs = require('fs')
 const config = require('../config.json')
 
 const { log } = console
-const { completePath, rcloneName, destinationPath, delugePort, torrentPath, watchDir } = config
+const { completePath, rcloneName, destinationPath, delugePort, torrentPath, watchDir, delugeAuth } = config
 
 const watcher = chokidar.watch(completePath, {
   ignored: /(^|[\/\\])\../,
@@ -40,7 +40,7 @@ const callback = async path => {
       } else {
         delugeName = `'${name}'`
       }
-      const torrentInfo = shell.exec(`deluge-console "connect 127.0.0.1:${delugePort} ; info ${delugeName}"`, { silent:true })
+      const torrentInfo = shell.exec(`deluge-console "connect 127.0.0.1:${delugePort} ${delugeAuth} ; info ${delugeName}"`, { silent:true })
       const infoArr = torrentInfo.stdout.split("\ \n")
       const targetInfo = infoArr.find(item => item.indexOf(name)!==-1)
       if (targetInfo) {
