@@ -46,6 +46,7 @@ see `https://rclone.org/`
   "torrentPath": "/home/xx/.config/deluge/state/", // deluge state path.
   "destinationPath": "/home/xx/torrents/rtorrent/", // Your another seedbox's client default download dir.
   "watchDir": "/home/xx/rwatch" // Your another seedbox's client watch dir.
+  "delugeAuth": "" // deluge auth see /home/xxx/.config/deluge/auth. Needed if you run script under another user
 }
 ```
 
