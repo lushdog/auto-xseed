@@ -4,5 +4,6 @@
   "delugePort": 37892,
   "torrentPath": "/home/xx/.config/deluge/state/",
   "destinationPath": "/home/xx/torrents/rtorrent/",
-  "watchDir": "/home/xx/rwatch"
+  "watchDir": "/home/xx/rwatch",
+  "delugeAuth": "localclient f247df530fad76382ea68f4e6df39555641758eb"
 }
