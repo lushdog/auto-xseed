@@ -5,5 +5,6 @@
   "torrentPath": "/home/xx/.config/deluge/state/",
   "destinationPath": "/home/xx/torrents/rtorrent/",
   "watchDir": "/home/xx/rwatch",
-  "delugeAuth": ""
+  "delugeAuth": "",
+  "trackers": []
 }
