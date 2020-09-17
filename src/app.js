@@ -4,7 +4,7 @@ const fs = require('fs')
 const config = require('../config.json')
 
 const { log } = console
-const { completePath, rcloneName, destinationPath, delugePort, torrentPath, watchDir, delugeAuth } = config
+const { completePath, rcloneName, destinationPath, delugePort, torrentPath, watchDir, delugeAuth, trackers } = config
 
 const watcher = chokidar.watch(completePath, {
   ignored: /(^|[\/\\])\../,
