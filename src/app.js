@@ -15,10 +15,26 @@ const watcher = chokidar.watch(completePath, {
 
 const callback = async path => {
     log(`${path} has been add...`)
+    const stat = fs.lstatSync(path)
     const namaArr = path.split('/')
     let name = namaArr[namaArr.length -1]
     name = name.replace('$', '\\$')
-    const stat = fs.lstatSync(path)
+    let delugeName = name.replace('\u200e', '')
+    if (delugeName.includes("'")) {
+      delugeName = name.replace(/(\s)/g, '\\$1').replace(/([\(\)\{\}\'])/g, '\\$1')
+    } else if (delugeName.includes(";")) {
+      delugeName = name.split("\ ")[0]
+    } else if (delugeName.includes("`")) {
+      delugeName = name.split("\ ")[0]
+    } else {
+      delugeName = `'${name}'`
+    }
+    const torrentInfo = shell.exec(`deluge-console "connect 127.0.0.1:${delugePort} ${delugeAuth} ; info ${delugeName}"`, { silent:true })
+    const isMatch = trackers.filter(tracker => torrentInfo.stdout.includes(tracker)).length
+    if(!isMatch) {
+      log(`${path} not matched, aborting...`)
+      return
+    }
     const realPath = stat.isDirectory() ? `${destinationPath}"${name}"` : destinationPath
     log(`------Transferring start------`)
     shell.exec(`rclone copy "${path}" ${rcloneName}:${realPath}`)
@@ -30,16 +46,6 @@ const callback = async path => {
     if (rcSize === remoteSize) {
       log(`------${name} transferred to ${rcloneName} successfully`)
       log(`Check was done, Start to find ${name} .torrent`)
-      let delugeName = name.replace('\u200e', '')
-      if (delugeName.includes("'")) {
-        delugeName = name.replace(/(\s)/g, '\\$1').replace(/([\(\)\{\}\'])/g, '\\$1')
-      } else if (delugeName.includes(";")) {
-        delugeName = name.split("\ ")[0]
-      } else if (delugeName.includes("`")) {
-        delugeName = name.split("\ ")[0]
-      } else {
-        delugeName = `'${name}'`
-      }
       const torrentInfo = shell.exec(`deluge-console "connect 127.0.0.1:${delugePort} ${delugeAuth} ; info ${delugeName}"`, { silent:true })
       const infoArr = torrentInfo.stdout.split("\ \n")
       const targetInfo = infoArr.find(item => item.indexOf(name)!==-1)
