@@ -31,7 +31,7 @@ const callback = async path => {
     }
     const torrentInfo = shell.exec(`deluge-console "connect 127.0.0.1:${delugePort} ${delugeAuth} ; info ${delugeName}"`, { silent:true })
     const isMatch = trackers.filter(tracker => torrentInfo.stdout.includes(tracker)).length
-    if(!isMatch) {
+    if(!isMatch && trackers.length) {
       log(`${path} not matched, aborting...`)
       return
     }
